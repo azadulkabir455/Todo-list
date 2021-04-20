@@ -66,9 +66,11 @@ body {
 }
 #todos .todo-input-container .add-icon {
     position:absolute;
-    width: 40px;
+    width: auto;
     height: 40px;
     background-color:rgb(236,44,44);
+    line-height: 18px;
+    font-size: 12px;
     padding: 12px;
     color: #fff;
     cursor:pointer;
