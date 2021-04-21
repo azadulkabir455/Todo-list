@@ -86,7 +86,7 @@ body {
 
 #todos .todo-list-container {
     list-style-type:none;
-    margin: 20px 0 0;
+    margin: 5px 0 0;
     width: 100%;
 }
 #todos .todo-list-container .todo-list {
@@ -108,6 +108,16 @@ body {
 #todos .todo-list-container .button-group {
     position:absolute;
     right:0;
+}
+#todos .todo-list-container .line-through {
+    text-decoration: line-through;
+    opacity: .8;
+    transition: .1s linear;
+}
+#todos .todo-list-container .fall {
+    opacity:0;
+    transform: translateY(30px);
+    transition: .2s linear;
 }
 #todos .todo-list-container .button-group button {
     width: auto;

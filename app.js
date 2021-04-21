@@ -32,6 +32,9 @@ addButton.addEventListener('click', function(){
         let editButton = document.createElement('button');
         editButton.classList.add('edit');
         editButton.innerHTML = '<span>Edit</span>';
+        editButton.addEventListener("click", function() {
+            editData(liTag);
+        })
 
         let trashButton = document.createElement('button');
         trashButton.classList.add('trash');
@@ -49,10 +52,33 @@ addButton.addEventListener('click', function(){
         // Append for main div
   
         mainTodoContainer.appendChild(ulTag);
-        console.log(mainTodoContainer);
 
+        todoList.addEventListener('click',function(e) {
+            let items = e.target;
+            if(items.classList[0] === 'complete'){
+                let getItemParent = items.parentElement;
+                let getMainParent = getItemParent.parentElement;
+                getMainParent.classList.add('line-through');
+            }else if (items.classList[0] ==="trash") {
+                let getItemParent  = items.parentElement;
+                let getMainParent = getItemParent.parentElement;
+                let getRootParent = getMainParent.parentElement;
+                getMainParent.classList.add("fall");
+                getMainParent.addEventListener("transitionend",function() {
+                    getMainParent.remove();
+                })
+               }
+              }
+             )
         // When add input the input box is empty
         inputData.value = "";
         
+       }else if(inputData.value == '') {
+         alert('Please input data');
     }
-});
+})
+
+function editData(e) {
+    let editValue = prompt("Edit the selected item", e.firstChild.nodeValue);
+    e.firstChild.nodeValue = editValue;
+}
